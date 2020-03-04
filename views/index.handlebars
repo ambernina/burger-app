@@ -1,39 +1,38 @@
-<h1>Burgers!</h1>
+<h1>burgers!</h1>
 
-<h2>Burgers to be devoured...</h2>
+<h2>burgers that are not devoured!</h2>
 
 <ul>
   {{#each burgers}}
-    {{#unless sleepy}}
-      {{> burgers/burger-block sleep=true}}
+    {{#unless devoured}}
+      {{> burgers/burger-block devoured=true}}
     {{/unless}}
   {{/each}}
 </ul>
 
-<h2>Burgers already devoured...</h2>
+<h2>burgers that are devoured!</h2>
 
 <ul>
   {{#each burgers}}
-    {{#if sleepy}}
-      {{> burgers/burger-block sleep=false}}
+    {{#if devoured}}
+      {{> burgers/burger-block devoured=false}}
     {{/if}}
   {{/each}}
-
 </ul>
 
-<h2>Add a Burger</h2>
+<h2>Add a burger</h2>
 <form class="create-form">
 
   <div class="form-group">
-    <label for="bu">Burger Name:</label>
-    <input type="text" id="bu" name="name">
+    <label for="ca">burger Name:</label>
+    <input type="text" id="ca" name="name">
   </div>
 
-  {{!-- <div class="form-group">
-    <label for="slee">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div> --}}
+  <div class="form-group">
+    <label for="devoured">Devoured?</label><br>
+    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
+    <input type="radio" name="devoured" value="0"> Not Devoured
+  </div>
 
-  <button type="submit">Add Burger</button>
+  <button type="submit">Add burger</button>
 </form>

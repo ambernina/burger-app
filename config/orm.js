@@ -1,5 +1,5 @@
 // Import MySQL connection.
-var connection = require("../config/connection");
+var connection = require("../config/connection.js");
 
 // Helper function for SQL syntax.
 // Let's say we want to pass 3 values into the mySQL query.
@@ -88,37 +88,20 @@ var orm = {
       cb(result);
     });
   },
-  delete: function(table, column, id, cb) {
-    let queryString = "DELETE FROM " + table;
-
+  delete: function(table, condition, cb) {
+    var queryString = "DELETE FROM " + table;
     queryString += " WHERE ";
-    queryString += column;
-    queryString += "=";
-    queryString += id;
+    queryString += condition;
 
-    console.log(queryString);
     connection.query(queryString, function(err, result) {
-      if (err) throw err;
+      if (err) {
+        throw err;
+      }
+
       cb(result);
-    })
+    });
   }
 };
 
-// Export the orm object for the model (cat.js).
+// Export the orm object for the model (burger.js).
 module.exports = orm;
-
-
-// app.delete("/api/movies/:id", function(req, res) {
-//   connection.query("DELETE FROM cats WHERE id = ?", [req.params.id], function(err, result) {
-//     if (err) {
-//       // If an error occurred, send a generic server failure
-//       return res.status(500).end();
-//     }
-//     else if (result.affectedRows === 0) {
-//       // If no rows were changed, then the ID must not exist, so 404
-//       return res.status(404).end();
-//     }
-//     res.status(200).end();
-
-//   });
-// });

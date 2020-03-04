@@ -1,13 +1,13 @@
 var express = require("express");
 
-var PORT = process.env.PORT || 3030;
+var PORT = process.env.PORT || 3040;
 
 var app = express();
 
-// Serve static content for the app from the "public" directory in the application directory.
+// Serve static content for the app from the "public" directory in the appliburgerion directory.
 app.use(express.static("public"));
 
-// Parse application body
+// Parse appliburgerion body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
