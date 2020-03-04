@@ -1,38 +1,59 @@
-<h1>burgers!</h1>
+<header>
+  <img id="burgerimg" src="../public/assets/img/burger-transparents.png" alt="burger">
+  <h1>burgers!</h1>
+</header>
 
-<h2>burgers that are not devoured!</h2>
+<div class="container spartan">
+  <div class="row">
+    <div class="col-6">
+      <h4>burgers to eat</h4>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+        {{/each}}
+      </ul>
 
-<h2>burgers that are devoured!</h2>
+    </div>
+    <div class="col-6">
+      <h4>burgers that have been eaten</h4>
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        {{> burgers/burger-block devoured=false}}
+        {{/if}}
+        {{/each}}
+      </ul>
 
-<h2>Add a burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">burger Name:</label>
-    <input type="text" id="ca" name="name">
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Not Devoured
+  <div class="row" id="addBurgerRow">
+    <div class="col-6 center">
+      <h4>Add a burger?</h4>
+      <form class="create-form">
+
+        <div class="form-group">
+          <label for="ca">Burger Name:</label>
+          <input type="text" id="ca" name="name">
+        </div>
+    </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="devoured">Eaten?</label><br>
+          <input type="radio" name="devoured" value="1" checked> ate it already!<br>
+          <input type="radio" name="devoured" value="0"> want to eat it...
+        </div>
+
+        <button type="submit">Add burger</button>
+      </form>
+
+      </div>
+
+
   </div>
 
-  <button type="submit">Add burger</button>
-</form>
+</div>
