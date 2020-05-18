@@ -3,6 +3,8 @@
 # Description
 This app is an exercise in DB creation and manipulation using mySQL and handlebars. We all love burgers, add to the burger wishlist and mark when you've devoured it!
 
+![](burger-app-screenshot.png)
+
 # Deployed Link
 https://intense-depths-92189.herokuapp.com/
 
